@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Ajouter Aéroport{% endblock %}
+{% block content %}
+<h1>Ajouter Aéroport</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Ajouter</button>
+  <a href="{% url 'avion:afficheAeroports' %}">Annuler</a>
+</form>
+{% endblock %}

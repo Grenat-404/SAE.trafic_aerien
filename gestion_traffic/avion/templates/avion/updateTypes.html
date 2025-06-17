@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Modifier Type d'avion{% endblock %}
+{% block content %}
+<h1>Modifier Type d'avion</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Mettre à jour</button>
+  <a href="{% url 'avion:afficheTypes' %}">Annuler</a>
+</form>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Liste des aéroports{% endblock %}
+{% block content %}
+<h1>Liste des aéroports</h1>
+<a class="btn" href="{% url 'avion:ajoutAeroports' %}">Ajouter un aéroport</a>
+<table>
+  <thead>
+    <tr><th>Nom</th><th>Pays</th><th>Actions</th></tr>
+  </thead>
+  <tbody>
+    {% for airport in object_list %}
+    <tr>
+      <td>{{ airport.nom }}</td>
+      <td>{{ airport.pays }}</td>
+      <td>
+        <a href="{% url 'avion:updateAeroports' airport.pk %}">✏️</a>
+        <a href="{% url 'avion:deleteAeroports' airport.pk %}">🗑️</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3">Aucun aéroport.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

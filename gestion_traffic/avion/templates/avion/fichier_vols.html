@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Importer des vols{% endblock %}
+{% block content %}
+  <h1>Importer des vols depuis un CSV</h1>
+
+  {% if import_message %}
+    <div class="alert alert-info">
+      {{ import_message|safe }}
+    </div>
+  {% endif %}
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_fichier">Fichier CSV</label>
+      <input
+        type="file"
+        name="fichier"
+        id="id_fichier"
+        accept=".csv"
+        required
+        class="form-control"
+      >
+    </div>
+    <button
+      type="submit"
+      name="submit_csv"
+      class="btn btn-primary mt-2"
+    >Importer</button>
+  </form>
+{% endblock %}

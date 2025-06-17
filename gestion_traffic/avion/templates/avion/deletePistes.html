@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Supprimer Piste{% endblock %}
+{% block content %}
+<h1>Supprimer Piste</h1>
+<p>Confirmez la suppression de la piste <strong>{{ object.numero }}</strong> de l'aéroport {{ object.aeroport.nom }}.</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Oui, supprimer</button>
+  <a href="{% url 'avion:affichePistes' %}">Annuler</a>
+</form>
+{% endblock %}

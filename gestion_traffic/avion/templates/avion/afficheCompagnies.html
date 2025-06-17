@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Liste des compagnies{% endblock %}
+{% block content %}
+<h1>Liste des compagnies</h1>
+<a class="btn" href="{% url 'avion:ajoutCompagnies' %}">Ajouter une compagnie</a>
+<table>
+  <thead>
+    <tr><th>Nom</th><th>Pays</th><th>Actions</th></tr>
+  </thead>
+  <tbody>
+    {% for company in object_list %}
+    <tr>
+      <td>{{ company.nom }}</td>
+      <td>{{ company.pays_rattachement }}</td>
+      <td>
+        <a href="{% url 'avion:updateCompagnies' company.pk %}">✏️</a>
+        <a href="{% url 'avion:deleteCompagnies' company.pk %}">🗑️</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3">Aucune compagnie.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

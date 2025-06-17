@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Accueil{% endblock %}
+{% block content %}
+<h1>Bienvenue dans le gestionnaire de trafic aérien</h1>
+<div class="card-container">
+  <div class="card">
+    <h2><a href="{% url 'avion:afficheAeroports' %}">Aéroports</a></h2>
+    <p>Gérer les aéroports et leurs informations.</p>
+  </div>
+  <div class="card">
+    <h2><a href="{% url 'avion:affichePistes' %}">Pistes</a></h2>
+    <p>Gérer les pistes d'atterrissage et leur disponibilité.</p>
+  </div>
+  <div class="card">
+    <h2><a href="{% url 'avion:afficheCompagnies' %}">Compagnies</a></h2>
+    <p>Gérer les compagnies aériennes.</p>
+  </div>
+  <div class="card">
+    <h2><a href="{% url 'avion:afficheTypes' %}">Types d'avion</a></h2>
+    <p>Gérer les modèles et leurs caractéristiques.</p>
+  </div>
+  <div class="card">
+    <h2><a href="{% url 'avion:afficheAvions' %}">Avions</a></h2>
+    <p>Gérer les avions et leur appartenance.</p>
+  </div>
+  <div class="card">
+    <h2><a href="{% url 'avion:afficheVols' %}">Vols</a></h2>
+    <p>Gérer les vols prévus et leurs plannings.</p>
+  </div>
+</div>
+{% endblock %}

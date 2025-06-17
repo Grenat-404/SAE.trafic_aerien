@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Supprimer Avion{% endblock %}
+{% block content %}
+<h1>Supprimer Avion</h1>
+<p>Confirmez la suppression de <strong>{{ object.nom }}</strong>.</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Oui, supprimer</button>
+  <a href="{% url 'avion:afficheAvions' %}">Annuler</a>
+</form>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Liste des vols{% endblock %}
+{% block content %}
+<h1>Liste des vols</h1>
+<a class="btn" href="{% url 'avion:ajoutVols' %}">Ajouter un vol</a>
+<a role="button" class="btn btn-secondary" href="{% url 'avion:fichier_vols' %}">Ajouter CSV</a>
+<table>
+  <thead>
+    <tr>
+      <th>Avion</th>
+      <th>Pilote</th>
+      <th>Départ</th>
+      <th>Arrivée</th>
+      <th>Actions</th>
+      <th>Fiche de vol</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for flight in object_list %}
+    <tr>
+      <td>{{ flight.avions.nom }}</td>
+      <td>{{ flight.pilote }}</td>
+      <td>
+        {{ flight.aeroports_dep.nom }}<br>
+        {{ flight.date_heure_depart }}
+      </td>
+      <td>
+        {{ flight.aeroports_arr.nom }}<br>
+        {{ flight.date_heure_arrivee }}
+      </td>
+      <td>
+        <a href="{% url 'avion:updateVols' flight.pk %}">✏️</a>
+        <a href="{% url 'avion:deleteVols' flight.pk %}">🗑️</a>
+      </td>
+      <td>
+        <a href="{% url 'avion:fiche_vol' flight.id %}" class="btn btn-sm btn-secondary">📄 Télécharger</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5">Aucun vol.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
