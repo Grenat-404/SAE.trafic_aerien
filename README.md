@@ -6,20 +6,20 @@ Prérequis
 • Python
 • Github
 
-Lancement Django
+# Lancement Django
 Pour le lancement du projet, il faut le récupérer sur githhub.io sur le lien suivant :
 https://github.com/Grenat-404/SAE.trafic_aerien
 Une fois le projet ouvert dans un environnement de développement, il faut faire une suite de
 commandes pour activer le projet en local.
 
-# Déplacement dans le bon dossier
+Déplacement dans le bon dossier
 cd gestion_traffic
-# Créer l'environnement virtuel
+Créer l'environnement virtuel
 python3 -m venv venv
-# Sous Linux/macOS
+Sous Linux/macOS
 python3 -m venv venv
 source venv/bin/activate
-# Sous Windows
+Sous Windows
 python -m venv venv
 venv\Scripts\Activate.ps1
 
@@ -30,7 +30,7 @@ pip install mysqlclient #base de données
 pip install Pillow #images
 
 Après il est temps de relier la base de données grâces à la migration de celles-ci
-# Appliquer les migrations
+Appliquer les migrations
 python manage.py makemigrations
 python manage.py migrate
 
@@ -38,7 +38,7 @@ Et pour finir, on lance le serveur django :
 python manage.py runserver
 Et le site sera accessible depuis l’adresse suivante : http://127.0.0.1:8000
 
-Sur la VM1 (Base de Données) :
+# Sur la VM1 (Base de Données) :
 • Vérifier si mariadb est en fonctionnement : sudo systemctl status mariadb (si pas actif faire
 sudo systemctl start mariadb)
 • Pour accéder à mariadb faire : sudo mariadb
@@ -48,7 +48,7 @@ donéee : USE trafic_aerien ;
 • Ensuite pour lister les tables on fait : SHOW TABLES ;
 • Pour afficher le contenu d’une table : SELECT * FROM nomdelatable ;
 
-Sur la VM2 (Serveur Web) :
+# Sur la VM2 (Serveur Web) :
 1. Activer l’environnement virtuel Python
 • Pour accéder aux fichiers du projet :
 cd /Votre/Chemin/SAE23_trafic_aerien/gestion_traffic/
