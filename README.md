@@ -1,11 +1,3 @@
-
-Prérequis
-• Première Machine virtuelle (base de données)
-• Deuxième Machine virtuelle (code Django + Nginx + Gunicorn)
-• Le code du projet Django dois être présent sur la deuxième VM
-• Python
-• Github
-
 # Lancement Django
 Pour le lancement du projet, il faut le récupérer sur githhub.io sur le lien suivant :
 https://github.com/Grenat-404/SAE.trafic_aerien
